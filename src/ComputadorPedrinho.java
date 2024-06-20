@@ -1,29 +1,23 @@
+
 public class ComputadorPedrinho {
 	public static void main(String[] args) {
-		
 
-		System.out.println("MSN");
-		MSNMessenger msn = new MSNMessenger();
-		msn.enviarMensagem();
-		msn.receberMensagem();
+		ServicoMensagemInstantanea smi = null;
 
-		
-		
+		/*
+		 * NÃO SE SABE QUAL APP
+		 * MAS QUALQUER UM DEVERÁ ENVIAR E RECEBER MENSAGEM
+		 */
+		String appEscolhido = "msn";
 
-		System.out.println("Facebook");
-		FacebookMessenger fbm = new FacebookMessenger();
-		fbm.enviarMensagem();
-		fbm.receberMensagem();
+		if (appEscolhido.equals("msn"))
+			smi = new MSNMessenger();
+		else if (appEscolhido.equals("fbm"))
+			smi = new FacebookMessenger();
+		else if (appEscolhido.equals("tlg"))
+			smi = new Telegram();
 
-		
-		
-
-		System.out.println("Telegram");
-
-		Telegram tlg = new Telegram();
-		tlg.enviarMensagem();
-		tlg.receberMensagem();		
-
-		
+		smi.enviarMensagem();
+		smi.receberMensagem();
 	}
 }
